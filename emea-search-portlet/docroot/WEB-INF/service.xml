@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.lenovo.bp.search.portlet">
+	<author>siyan</author>
+	<namespace>search</namespace>
+
+	<entity local-service="true" remote-service="true" cache-enabled="false" name="Search" table="journalarticl_operator">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true" id-type="increment"/>
+
+		<!-- Group instance -->
+
+		<column name="journalarticl_id" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="operat_type" type="long" />
+		<column name="operat_time" type="Date" />
+
+		<!-- Other fields -->
+
+		<!-- Order -->
+
+		<!-- Finder methods -->
+        <column name="userId" type="long"></column>
+        <column name="structureId" type="String"></column>
+        <finder name="collectAddAndModifyDocId" return-type="Collection">
+            <finder-column name="userId" comparator="="></finder-column>
+        </finder>
+        <finder name="collectDeletedDocId" return-type="Collection">
+            <finder-column name="userId"></finder-column>
+        </finder>
+	</entity>
+    <entity name="Role" local-service="true" table="roleview_">
+        <column name="roleId" type="long" primary="true"></column>
+        <column name="name" type="String" primary="false"></column>
+        <column name="userId" type="long" primary="true"></column>
+        <column name="screenName" type="String"></column>
+    </entity>
+    <entity name="Document" local-service="false" table="journalarticle" remote-service="false">
+        <column name="id_" type="long" primary="true"></column>
+        <column name="createDate" type="String"></column>
+        <column name="articleId" type="long"></column>
+        <column name="version" type="double"></column>
+        <column name="title" type="String"></column>
+        <column name="content" type="String"></column>
+    </entity>
+    <entity name="LangTitle" remote-service="false" cache-enabled="false">
+        <column name="locals" type="String" primary="true"></column>
+        <column name="title" type="String"></column>
+    </entity>
+    <entity name="LangContent" remote-service="false" cache-enabled="false">
+        <column name="locals" type="String" primary="true"></column>
+        <column name="content" type="String"></column>
+    </entity>
+    <entity name="ExtDocument" remote-service="false" cache-enabled="false">
+        <column name="id_" type="long" primary="true"></column>
+        <column name="createDate" type="String"></column>
+        <column name="articleId" type="long"></column>
+        <column name="version" type="double"></column>
+        <column name="title" type="Collection"></column>
+        <column name="content" type="Collection"></column>
+        <column name="url" type="String"></column>
+    </entity>
+</service-builder>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.lenovo.bp.search.portlet.model.Document">
+		<field name="id_" type="long" />
+		<field name="createDate" type="String" />
+		<field name="articleId" type="long" />
+		<field name="version" type="double" />
+		<field name="title" type="String" />
+		<field name="content" type="String" />
+	</model>
+	<model name="com.lenovo.bp.search.portlet.model.Role">
+		<field name="roleId" type="long" />
+		<field name="name" type="String" />
+		<field name="userId" type="long" />
+	</model>
+	<model name="com.lenovo.bp.search.portlet.model.Search">
+		<field name="id" type="long" />
+		<field name="journalarticl_id" type="long" />
+		<field name="operat_type" type="long" />
+		<field name="operat_time" type="Date" />
+		<field name="userId" type="long" />
+	</model>
+</model-hints>

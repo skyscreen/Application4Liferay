@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.lenovo.bp.search.portlet.service.persistence.DocumentPersistence" class="com.lenovo.bp.search.portlet.service.persistence.DocumentPersistenceImpl" parent="basePersistence" />
+	<bean id="com.lenovo.bp.search.portlet.service.persistence.RolePersistence" class="com.lenovo.bp.search.portlet.service.persistence.RolePersistenceImpl" parent="basePersistence" />
+	<bean id="com.lenovo.bp.search.portlet.service.SearchLocalService" class="com.lenovo.bp.search.portlet.service.impl.SearchLocalServiceImpl" />
+	<bean id="com.lenovo.bp.search.portlet.service.SearchService" class="com.lenovo.bp.search.portlet.service.impl.SearchServiceImpl" />
+	<bean id="com.lenovo.bp.search.portlet.service.persistence.SearchPersistence" class="com.lenovo.bp.search.portlet.service.persistence.SearchPersistenceImpl" parent="basePersistence" />
+</beans>

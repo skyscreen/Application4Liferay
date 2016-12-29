@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.lenovo.bp.search.portlet.model.impl.DocumentModelImpl">
+		<attributes>
+			<id name="id_" />
+			<basic name="createDate" />
+			<basic name="articleId" />
+			<basic name="version" />
+			<basic name="title" />
+			<basic name="content" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lenovo.bp.search.portlet.model.impl.RoleModelImpl">
+		<attributes>
+			<id name="roleId" />
+			<basic name="name" />
+			<basic name="userId" />
+			<basic name="screenName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.lenovo.bp.search.portlet.model.impl.SearchModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="id" />
+			</id>
+			<basic name="journalarticl_id" />
+			<basic name="operat_type" />
+			<basic name="operat_time">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="userId" />
+			<basic name="structureId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.lenovo.bp.search.portlet.model.impl.DocumentImpl" name="Document">
+		<table name="journalarticle" />
+		<attributes />
+	</entity>
+	<entity class="com.lenovo.bp.search.portlet.model.impl.RoleImpl" name="Role">
+		<table name="roleview_" />
+		<attributes />
+	</entity>
+	<entity class="com.lenovo.bp.search.portlet.model.impl.SearchImpl" name="Search">
+		<table name="journalarticl_operator" />
+		<attributes />
+	</entity>
+</entity-mappings>

@@ -1,0 +1,24 @@
+--mysql sql
+CREATE TRIGGER `lportal`.`journalarticle_AFTER_UPDATE` AFTER UPDATE ON `journalarticle` FOR EACH ROW
+BEGIN
+	insert into `lportal`.`journalarticl_operator` values (0, old.id_, 2, sysdate(),old.userId,old.structureId);
+END
+
+CREATE TRIGGER `lportal`.`journalarticle_AFTER_DELETE` AFTER DELETE ON `journalarticle` FOR EACH ROW
+BEGIN
+	insert into `lportal`.`journalarticl_operator` values (0, old.id_, 1, sysdate(),old.userId,old.structureId);
+END
+
+CREATE TABLE `journalarticl_operator` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `journalarticl_id` bigint(20) DEFAULT NULL,
+  `operat_type` int(11) DEFAULT NULL,
+  `operat_time` datetime DEFAULT NULL,
+  `userId` bigint(20) DEFAULT NULL,
+  `structureId` varchar(75) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+CREATE VIEW `lportal`.`roleview_` AS
+select a1.roleId as roleId,a2.name as name,a1.userId as userId,a3.screenName as screenName  from users_roles a1,role_ a2,user_ a3 where a1.userId=a3.userId and a1.roleId=a2.roleId
